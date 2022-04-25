@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-forget/static/css/main.b4f63764.css",
+    "main.js": "/react-forget/static/js/main.56b39a57.js",
+    "index.html": "/react-forget/index.html",
+    "main.b4f63764.css.map": "/react-forget/static/css/main.b4f63764.css.map",
+    "main.56b39a57.js.map": "/react-forget/static/js/main.56b39a57.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b4f63764.css",
+    "static/js/main.56b39a57.js"
+  ]
+}
