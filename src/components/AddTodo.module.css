@@ -1,0 +1,38 @@
+.addTodo {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  position: relative;
+}
+
+.input {
+  background: rgb(5, 100, 140);
+  padding: 16px;
+  box-sizing: border-box;
+  border-radius: 40px;
+  color: #fff;
+  width: 100%;
+  border: 1px solid transparent;
+  padding-right: 60px;
+  font-size: 16px;
+}
+
+.input:focus {
+  outline: none;
+  border: 1px solid #eee;
+}
+
+input::-webkit-input-placeholder {
+  color: rgba(250, 250, 250, 0.4);
+}
+
+.button {
+  position: absolute;
+  background: rgb(5, 100, 140);
+  box-sizing: border-box;
+  border: 1px solid #eee;
+  color: #eee;
+  padding: 5px 10px;
+  border-radius: 50px;
+  right: 10px;
+}

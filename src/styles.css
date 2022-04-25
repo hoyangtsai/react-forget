@@ -1,0 +1,14 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: "Arial";
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  background: rgb(36, 38, 45);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
