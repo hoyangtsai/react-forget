@@ -6,14 +6,17 @@ const AddTodo = ({ setTodos }) => {
 
   const handleAdd = (e) => {
     e.preventDefault();
-    setTodos((todos) => [
-      ...todos,
-      {
-        id: todos[todos.length - 1].id++,
-        name: todo,
-        isDone: false
-      }
-    ]);
+    setTodos((todos) => {
+      let newId = todos.length > 0 ? todos[todos.length - 1].id + 1 : 1;
+      return [
+        ...todos,
+        {
+          id: newId,
+          name: todo,
+          isDone: false
+        }
+      ];
+    });
     setTodo("");
   };
 

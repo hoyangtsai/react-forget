@@ -1,0 +1,15 @@
+.counter {
+  background: rgb(243, 195, 69);
+  text-align: center;
+  line-height: 24px;
+  min-width: 24px;
+  height: 24px;
+  color: #000;
+  border-radius: 50%;
+  font-size: 12px;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1000;
+  right: 16px;
+  font-weight: bold;
+}
