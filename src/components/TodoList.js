@@ -1,7 +1,9 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useContext } from "react";
 import styles from "./TodoList.module.css";
 import UnmemorizedTodo from "./Todo";
 import AddTodo from "./AddTodo";
+
+import { AppContext } from '../App';
 
 const initialTodos = () => [
   {
@@ -29,6 +31,8 @@ const Todo = React.memo(UnmemorizedTodo);
 
 const TodoList = () => {
   const [todos, setTodos] = useState(initialTodos);
+  const { state } = useContext(AppContext);
+
   const handleChange = useCallback(
     todo => setTodos((todos) => getUpdate(todos, todo)), []
   );
@@ -37,7 +41,9 @@ const TodoList = () => {
     <div className={styles.todoList}>
       <ul className={styles.list}>
         {todos.map((todo) => (
-          <Todo key={todo.id} todo={todo} onChange={handleChange} id={todo.id} />
+          state.memo ?
+          <Todo key={todo.id} todo={todo} onChange={handleChange} id={todo.id} /> :
+          <UnmemorizedTodo key={todo.id} todo={todo} onChange={handleChange} id={todo.id} />
         ))}
       </ul>
       <AddTodo setTodos={setTodos} />
