@@ -1,18 +1,69 @@
 .todoList {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(220deg, rgb(4, 89, 117), rgb(0, 82, 110));
-  width: 312px;
-  border-radius: 20px;
-  padding: 16px;
-  margin: 0 auto;
-}
-
-.list {
   list-style: none;
   margin: 0;
   padding: 0;
   max-height: 308px;
   overflow: scroll;
+}
+
+.todoHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.colorPicker {
+  background: none;
+  border: none;
+  height: 38px;
+  width: 36px;
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+  margin-right: 8px;
+  box-sizing: border-box;
+}
+
+.colorPicker::-webkit-color-swatch {
+  border: none;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+}
+
+.todoFilter {
+  flex: 1;
+}
+
+.todoBox {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(45deg, #045975, #377B9F);
+  border-radius: 20px;
+  width: 344px;
+  box-sizing: border-box;
+  padding: 16px;
+}
+
+.todoWrap {
+  width: 344px;
+  margin: 0 auto;
+}
+
+.todoTop {
+  color: #FFF;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.filterCount {
+  display: inline-block;
+  color: #fff;
+  min-width: 1.5em;
+  background: #ff0000;
+  border-radius: 4px;
+  margin: 0 4px;
+  box-sizing: border-box;
 }

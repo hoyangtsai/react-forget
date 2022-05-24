@@ -1,5 +1,5 @@
 import styles from "./Todo.module.css";
-import RenderCount from "./Counter";
+import RenderCount from "./RenderCount";
 
 const Todo = ({ todo, onChange, id }) => {
   return (

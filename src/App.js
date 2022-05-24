@@ -2,6 +2,7 @@ import "./styles.css";
 import TodoList from "./components/TodoList";
 import Toggle from './components/Toggle';
 import { useReducer, createContext } from 'react';
+import { counter } from './useCounter';
 
 const switchConfig = {
   darkIcon: '👍',
@@ -11,7 +12,7 @@ const switchConfig = {
 };
 
 const initialState = {
-  memo: false,
+  memo: true,
 }
 
 function reducer(state, action) {
@@ -35,11 +36,12 @@ export default function App() {
       type: state.memo ? 'NOT_MEMO' : 'MEMO',
       memo: !state.memo
     })
+    counter.reset();
   }
 
   return (
     <div className="app">
-      <AppContext.Provider value={{ state }}>
+      <AppContext.Provider value={{ state, dispatch }}>
         <div className="toggle">
           <span className="toggle-text">with memo or not</span>
           <Toggle
