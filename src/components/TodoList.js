@@ -1,9 +1,9 @@
-import React, { useState, useCallback, useContext, useEffect } from "react";
+import React, { useState, useCallback, useContext } from "react";
 import styles from "./TodoList.module.css";
 import UnmemorizedTodo from "./Todo";
 import AddTodo from "./AddTodo";
 import Filter from './Filter';
-import useCounter, { counter } from '../useCounter';
+import useCounter from '../useCounter';
 
 import { AppContext } from '../App';
 
