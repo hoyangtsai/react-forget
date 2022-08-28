@@ -1,5 +1,5 @@
 import "./styles.css";
-import TodoList from "./components/TodoList";
+import BlazingTodoList from "./components/BlazingTodoList";
 import Toggle from './components/Toggle';
 import { useReducer, createContext } from 'react';
 import { counter } from './useCounter';
@@ -31,7 +31,7 @@ export const AppContext = createContext(initialState);
 export default function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const handleToggled = (e) => {
+  const handleToggled = () => {
     dispatch({
       type: state.memo ? 'NOT_MEMO' : 'MEMO',
       memo: !state.memo
@@ -51,7 +51,7 @@ export default function App() {
             onChange={handleToggled}
           />
         </div>
-        <TodoList />
+        <BlazingTodoList />
       </AppContext.Provider>
     </div>
   )

@@ -1,44 +1,41 @@
 import React, { useState, useCallback, useContext } from "react";
-import styles from "./TodoList.module.css";
 import UnmemorizedTodo from "./Todo";
 import AddTodo from "./AddTodo";
-import Filter from './Filter';
-import useCounter from '../useCounter';
-
 import { AppContext } from '../App';
+
+import styles from './TodoList.module.css';
 
 const initialTodos = () => [
   {
     id: 1,
-    name: "memo",
-    isDone: false
+    text: "memo",
+    done: false
   },
   {
     id: 2,
-    name: "useCallback",
-    isDone: false
+    text: "useCallback",
+    done: false
   },
   {
     id: 3,
-    name: "useMemo",
-    isDone: false
+    text: "useMemo",
+    done: false
   }
 ];
 
 function getUpdate(todos, todo) {
-  return todos.map((t) => (t.id === todo.id ? { ...t, isDone: !t.isDone } : t));
+  return todos.map((t) => (t.id === todo.id ? { ...t, done: !t.done } : t));
 }
 
 function getFiltered(todos, visibility) {
   if (visibility === 'all') return todos;
 
-  return todos.filter((t) => visibility === 'active' ? !t.isDone : t.isDone);
+  return todos.filter((t) => visibility === 'active' ? !t.done : t.done);
 }
-
 
 const Todo = React.memo(UnmemorizedTodo);
 
-const TodoList = ({ visibility, themeColor, setThemeColor, setVisibility }) => {
+export default function TodoList({ visibility, themeColor }) {
   const [todos, setTodos] = useState(initialTodos);
   const { state } = useContext(AppContext);
 
@@ -48,40 +45,17 @@ const TodoList = ({ visibility, themeColor, setThemeColor, setVisibility }) => {
 
   const filtered = getFiltered(todos, visibility);
 
-  const filterCount = useCounter('getFiltered');
-
   return (
     <>
-      <div className={styles.todoTop}>getFiltered() was called <span className={styles.filterCount}>{filterCount}</span> times</div>
-      <div className={styles.todoBox} style={{'background': `linear-gradient(45deg, ${themeColor}, #056f92)`}}>
-        <div className={styles.todoHeader}>
-          <input type="color" className={styles.colorPicker} defaultValue={themeColor} onChange={e => setThemeColor(e.target.value)} />
-          <Filter className={styles.todoFilter} visibility={visibility} onChange={e => setVisibility(e.target.id)} />
-        </div>    
-        <ul className={styles.todoList}>
-          {filtered.map((todo) => (
-            state.memo ?
-            <Todo key={todo.id} todo={todo} onChange={handleChange} id={todo.id} /> :
-            <UnmemorizedTodo key={todo.id} todo={todo} onChange={handleChange} id={todo.id} />
-          ))}
-        </ul>
-        <AddTodo setTodos={setTodos} />
-      </div>
+      <ul className={styles.todoList}>
+        {filtered.map((todo) => (
+          state.memo ?
+          <Todo key={todo.id} todo={todo} onChange={handleChange} id={todo.id} /> :
+          <UnmemorizedTodo key={todo.id} todo={todo} onChange={handleChange} id={todo.id} />
+        ))}
+      </ul>
+      <AddTodo setTodos={setTodos} themeColor={themeColor} />
     </>
-  );
-};
-
-
-function BlazingTodoList() {
-  const [visibility, setVisibility] = useState('all');
-  const [themeColor, setThemeColor] = useState('#045975');
-
-  return (
-    <div className={styles.todoWrap}>
-      <TodoList visibility={visibility} themeColor={themeColor} setThemeColor={setThemeColor} setVisibility={setVisibility} />
-    </div>
   )
 }
 
-
-export default BlazingTodoList;

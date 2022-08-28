@@ -1,13 +1,12 @@
-.filter {
+.select {
+  flex: 1;
   position: relative;
   padding: 10px;
   background: rgb(4, 89, 117);
   border-radius: 18px;
   height: 36px;
   box-sizing: border-box;
-}
 
-.filterList {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -16,17 +15,17 @@
   margin: 0;
 }
 
-.filterListItem input[type="radio"] {
+.selectItem input[type="radio"] {
   display: none;
 }
 
-.filterListItem label {
+.selectItem label {
   cursor: pointer;
   margin-right: 10px;
   color: rgb(255, 255, 255, 0.3);
   user-select: none;
 }
 
-.filterListItem input:checked ~ label {
+.selectItem input:checked ~ label {
   color: #fff;
 }

@@ -1,0 +1,35 @@
+
+
+.column {
+  width: 344px;
+  margin: 0 auto;
+}
+
+.todoHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.todoListApp {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px;
+}
+
+.countBanner {
+  color: #FFF;
+  font-size: 16px;
+  line-height: 24px;
+  padding-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.countBanner code {
+  margin-right: .5em;
+}

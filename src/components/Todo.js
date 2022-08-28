@@ -8,11 +8,11 @@ const Todo = ({ todo, onChange, id }) => {
         <input
           className={styles.input}
           type="checkbox"
-          checked={todo.isDone}
+          checked={todo.done}
           onChange={() => onChange(todo)}
         />
         <span className={styles.checkmark} />
-        <span className={styles.name}>{todo.name}</span>
+        <span className={styles.name}>{todo.text}</span>
       </label>
       <RenderCount name={id} />
     </li>
