@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/react-forget/static/css/main.7a2dcbde.css",
-    "main.js": "/react-forget/static/js/main.bfef7763.js",
+    "main.css": "/react-forget/static/css/main.9d4eaf6f.css",
+    "main.js": "/react-forget/static/js/main.2098e809.js",
     "index.html": "/react-forget/index.html",
-    "main.7a2dcbde.css.map": "/react-forget/static/css/main.7a2dcbde.css.map",
-    "main.bfef7763.js.map": "/react-forget/static/js/main.bfef7763.js.map"
+    "main.9d4eaf6f.css.map": "/react-forget/static/css/main.9d4eaf6f.css.map",
+    "main.2098e809.js.map": "/react-forget/static/js/main.2098e809.js.map"
   },
   "entrypoints": [
-    "static/css/main.7a2dcbde.css",
-    "static/js/main.bfef7763.js"
+    "static/css/main.9d4eaf6f.css",
+    "static/js/main.2098e809.js"
   ]
 }
