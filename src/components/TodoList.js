@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useContext } from "react";
+import React, { useState, useCallback, useContext, useMemo } from "react";
 import UnmemorizedTodo from "./Todo";
 import AddTodo from "./AddTodo";
 import { AppContext } from '../App';
@@ -43,7 +43,14 @@ export default function TodoList({ visibility, themeColor }) {
     todo => setTodos((todos) => getUpdate(todos, todo)), []
   );
 
-  const filtered = getFiltered(todos, visibility);
+  // if (!state.memo)
+  // const filtered = getFiltered(todos, visibility);
+  // else
+
+  const filtered = useMemo(
+    () => getFiltered(todos, visibility),
+    [todos, visibility]
+  );
 
   return (
     <>

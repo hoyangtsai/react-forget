@@ -6,8 +6,9 @@ export default class Counter {
   set(name = 'default') {
     if (!(name in this.data)) {
       this.clear(name);
+    } else {
+      this.data[name]++;
     }
-    this.data[name]++;
   }
 
   get(name = 'default') {
@@ -16,8 +17,8 @@ export default class Counter {
     }
   }
 
-  clear(name = 'label') {
-    this.data[name] = -1;
+  clear(name) {
+    this.data[name] = 0;
   }
 
   reset() {
