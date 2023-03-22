@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./BlazingTodoList.module.css";
 import Select from './Select';
 import CounterBadge from "./CounterBadge";
 import ColorPicker from "./ColorPicker";
 import TodoList from "./TodoList";
+import TodoListOptimized from "./TodoList-optimized";
+import { AppContext } from '../App';
 
 export default function BlazingTodoList() {
   const [visibility, setVisibility] = useState('all');
   const [themeColor, setThemeColor] = useState('#045975');
+  const { state } = useContext(AppContext);
 
   const bgGradient = `linear-gradient(
     209.21deg,
@@ -34,8 +37,11 @@ export default function BlazingTodoList() {
             ]}
             onChange={value => setVisibility(value)}
           />
-        </div>    
-        <TodoList visibility={visibility} themeColor={themeColor} />
+        </div>
+        {state.memo ? 
+          <TodoListOptimized visibility={visibility} themeColor={themeColor} />: 
+          <TodoList visibility={visibility} themeColor={themeColor} />
+        }
       </div>
     </div>
   );

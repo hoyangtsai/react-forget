@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import Todo from "./Todo";
 import AddTodo from "./AddTodo";
 
@@ -32,18 +32,25 @@ function getFiltered(todos, visibility) {
   return todos.filter((t) => visibility === 'active' ? !t.done : t.done);
 }
 
+const MemorizedTodo = React.memo(Todo);
+
 export default function TodoList({ visibility, themeColor }) {
   const [todos, setTodos] = useState(initialTodos);
 
-  const handleChange = todo => setTodos((todos) => getUpdate(todos, todo));
+  const handleChange = useCallback(
+    todo => setTodos((todos) => getUpdate(todos, todo)), []
+  );
 
-  const filtered = getFiltered(todos, visibility);
+  const filtered = useMemo(
+    () => getFiltered(todos, visibility),
+    [todos, visibility]
+  );
 
   return (
     <>
       <ul className={styles.todoList}>
         {filtered.map((todo) => (
-          <Todo key={todo.id} todo={todo} onChange={handleChange} id={todo.id} />
+          <MemorizedTodo key={todo.id} todo={todo} onChange={handleChange} id={todo.id} />
         ))}
       </ul>
       <AddTodo setTodos={setTodos} themeColor={themeColor} />
