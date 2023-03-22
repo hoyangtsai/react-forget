@@ -12,7 +12,7 @@ const switchConfig = {
 };
 
 const initialState = {
-  memo: true,
+  memo: false,
 }
 
 function reducer(state, action) {
@@ -43,7 +43,7 @@ export default function App() {
     <div className="app">
       <AppContext.Provider value={{ state, dispatch }}>
         <div className="toggle">
-          <span className="toggle-text">with memo or not</span>
+          <span className="toggle-text">with memo = 👍 / not = 👎</span>
           <Toggle
             className="toggle-on"
             checked={state.memo}
