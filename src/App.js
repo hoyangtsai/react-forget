@@ -5,9 +5,9 @@ import { useReducer, createContext } from 'react';
 import { counter } from './useCounter';
 
 const switchConfig = {
-  darkIcon: '👍',
+  darkIcon: '✅',
   darkIconStyle: {},
-  lightIcon: '👎',
+  lightIcon: '⛔️',
   lightIconStyle: {},
 };
 
@@ -43,7 +43,7 @@ export default function App() {
     <div className="app">
       <AppContext.Provider value={{ state, dispatch }}>
         <div className="toggle">
-          <span className="toggle-text">with memo = 👍 / not = 👎</span>
+          <span className="toggle-text">with memo ✅ / without memo ⛔️</span>
           <Toggle
             className="toggle-on"
             checked={state.memo}
